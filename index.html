@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boucherie Charcuterie Passieu — Traiteur à Bessèges (30)</title>
+  <meta name="description" content="Boucherie charcuterie traiteur Passieu à Bessèges. Viandes de tradition bouchère, plats cuisinés, buffets de mariage, campagnards et apéritifs. Livraison à domicile.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bordeaux: #8B0000;
+      --bordeaux-dark: #6B0000;
+      --cream: #FFF8F0;
+      --warm-gold: #C9A96E;
+      --text: #2C2C2C;
+      --text-light: #5A5A5A;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: var(--bordeaux);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    nav a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-left: 28px;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.8; }
+
+    .nav-toggle { display: none; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+      color: var(--cream);
+      text-align: center;
+      padding: 70px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--cream);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-logo {
+      max-width: 360px;
+      width: 80%;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.9;
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--warm-gold);
+      color: var(--bordeaux-dark);
+      padding: 14px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .hero-cta:hover { background: #D4B67E; transform: translateY(-1px); }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--bordeaux);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .section-line {
+      width: 50px;
+      height: 3px;
+      background: var(--warm-gold);
+      margin: 0 auto 40px;
+      border-radius: 2px;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+
+    .service-icon {
+      font-size: 2.4rem;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--bordeaux);
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Gallery */
+    .gallery-bg {
+      background: #fff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .gallery-grid img:hover { transform: scale(1.03); }
+
+    /* About */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--bordeaux);
+      margin-bottom: 14px;
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .about-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    /* Contact */
+    .contact-bg {
+      background: var(--bordeaux);
+      color: var(--cream);
+    }
+    .contact-bg .section-title { color: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .contact-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-item p, .contact-item a {
+      color: rgba(255,248,240,0.85);
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+    .contact-item a:hover { color: var(--warm-gold); }
+
+    .contact-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bordeaux-dark);
+      color: rgba(255,248,240,0.6);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--cream);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      nav.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bordeaux);
+        padding: 16px 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+      nav.open a { margin: 8px 0; font-size: 1rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid img { height: 180px; }
+      .about-content { grid-template-columns: 1fr; }
+      .hero { padding: 50px 20px 60px; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="header-logo">
+        <img src="img/logo.gif" alt="Boucherie Passieu">
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <nav>
+        <a href="#services">Nos services</a>
+        <a href="#realisations">Nos buffets</a>
+        <a href="#apropos">Le Cévenol</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="img/logo.gif" alt="Boucherie Charcuterie Traiteur Passieu" class="hero-logo">
+    <h1>Boucherie Charcuterie Traiteur</h1>
+    <p class="hero-sub">Le Cévenol — Commerce Multiservices à Bessèges depuis des générations. Viandes de tradition, plats cuisinés et buffets sur mesure.</p>
+    <a href="#contact" class="hero-cta">Nous contacter</a>
+  </div>
+
+  <!-- Services -->
+  <section id="services">
+    <h2 class="section-title">Nos savoir-faire</h2>
+    <div class="section-line"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">&#127830;</div>
+        <h3>Boucherie</h3>
+        <p>Un choix de viandes de tradition bouchère, sélectionnées avec soin auprès de nos éleveurs locaux des Cévennes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#129385;</div>
+        <h3>Charcuterie</h3>
+        <p>Charcuterie artisanale, saucissons, terrines et pâtés préparés dans le respect des recettes traditionnelles cévenoles.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#127869;</div>
+        <h3>Traiteur</h3>
+        <p>Buffets de mariage, campagnards et apéritifs. Plats cuisinés maison et livraison à domicile pour tous vos événements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <div class="gallery-bg" id="realisations">
+    <section>
+      <h2 class="section-title">Nos buffets</h2>
+      <div class="section-line"></div>
+      <div class="gallery-grid">
+        <img src="img/buffet_01.jpg" alt="Buffet charcuterie traditionnelle" loading="lazy">
+        <img src="img/buffet_06.jpg" alt="Buffet campagnard avec plateaux de charcuterie" loading="lazy">
+        <img src="img/buffet_07.jpg" alt="Table de buffet garnie pour réception" loading="lazy">
+        <img src="img/buffet_08.jpg" alt="Assortiment de charcuteries et crudités" loading="lazy">
+        <img src="img/buffet_09.jpg" alt="Buffet traiteur complet avec pain et charcuterie" loading="lazy">
+        <img src="img/buffet_10.jpg" alt="Buffet apéritif avec canapés et salades" loading="lazy">
+      </div>
+    </section>
+  </div>
+
+  <!-- About -->
+  <section id="apropos">
+    <div class="about-content">
+      <div class="about-text">
+        <h3>Le Cévenol — Commerce Multiservices</h3>
+        <p>Installée au coeur de Bessèges, la Boucherie Charcuterie Passieu est un commerce de proximité qui perpétue les traditions bouchères cévenoles.</p>
+        <p>Nous proposons un large choix de viandes sélectionnées, de charcuterie artisanale et de plats cuisinés maison. Notre service traiteur accompagne vos événements : mariages, fêtes de famille, réceptions et buffets campagnards.</p>
+        <p>Livraison à domicile de vos commandes sur le secteur de Bessèges et ses environs.</p>
+      </div>
+      <img src="img/buffet_09.jpg" alt="Buffet traiteur Passieu" class="about-img">
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <div class="contact-bg" id="contact">
+    <section>
+      <h2 class="section-title">Nous contacter</h2>
+      <div class="section-line"></div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-icon">&#128205;</div>
+          <h4>Adresse</h4>
+          <p>2 rue Albert Chambonnet<br>30160 Bessèges</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128222;</div>
+          <h4>Téléphone</h4>
+          <p><a href="tel:0466837068">04 66 83 70 68</a></p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9993;</div>
+          <h4>Email</h4>
+          <p><a href="mailto:boucherie.passieu@orange.fr">boucherie.passieu@orange.fr</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Boucherie Charcuterie Passieu — Bessèges (30). Tous droits réservés.</p>
+  </footer>
+
+</body>
+</html>
